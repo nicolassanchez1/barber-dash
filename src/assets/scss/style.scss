@@ -1,0 +1,259 @@
+// color variants
+@use 'themes-vars.module.scss' as *;
+
+// third party
+@use 'react-perfect-scrollbar/dist/css/styles.css';
+
+// ==============================|| TAP HIGHLIGHT ||============================== //
+
+* {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+// ==============================|| APEXCHART ||============================== //
+
+.apexcharts-legend-series .apexcharts-legend-marker {
+  left: -4px !important;
+  right: -4px !important;
+}
+
+.apexcharts-legend.apx-legend-position-bottom .apexcharts-legend-series,
+.apexcharts-legend.apx-legend-position-top .apexcharts-legend-series {
+  gap: 8px;
+}
+
+.apexcharts-canvas {
+  .apexcharts-tooltip-series-group.apexcharts-active,
+  .apexcharts-tooltip-series-group:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.apexcharts-legend-series {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+// ==============================|| PERFECT SCROLLBAR ||============================== //
+
+.scrollbar-container {
+  .ps__rail-y {
+    &:hover > .ps__thumb-y,
+    &:focus > .ps__thumb-y,
+    &.ps--clicking .ps__thumb-y {
+      background-color: $grey500;
+      width: 5px;
+    }
+  }
+  .ps__thumb-y {
+    background-color: $grey500;
+    border-radius: 6px;
+    width: 5px;
+    right: 0;
+  }
+}
+
+.scrollbar-container.ps,
+.scrollbar-container > .ps {
+  &.ps--active-y > .ps__rail-y {
+    width: 5px;
+    background-color: transparent !important;
+    z-index: 999;
+    &:hover,
+    &.ps--clicking {
+      width: 5px;
+      background-color: transparent;
+    }
+  }
+  &.ps--scrolling-y > .ps__rail-y,
+  &.ps--scrolling-x > .ps__rail-x {
+    opacity: 0.4;
+    background-color: transparent;
+  }
+}
+
+// ==============================|| ANIMATION KEYFRAMES ||============================== //
+
+@keyframes wings {
+  50% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0);
+  }
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -5px, 0);
+  }
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -7px, 0);
+  }
+  80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes slideY {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes slideX {
+  0%,
+  50%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+
+.css-nt23b8-MuiDataGrid-root .MuiDataGrid-columnHeader:focus, .css-nt23b8-MuiDataGrid-root .MuiDataGrid-cell:focus {
+  outline: none !important;
+}
+
+.css-qzg5qt-MuiDataGrid-root .MuiDataGrid-columnHeader:focus, .css-qzg5qt-MuiDataGrid-root .MuiDataGrid-cell:focus {
+  outline: none !important;
+}
+
+
+.pole-top, .top::after, .bottom::after {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  content: '';
+}
+.default-border, .pole-top, .top::after, .bottom::after, .top::before, .cilinder, .bottom, .bottom::before {
+  border: 4px solid #333;
+}
+.shadow, .top, .top::before, .bottom, .bottom::before {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 15%, transparent 20%, transparent 85%, rgba(0, 0, 0, 0.1) 95%, rgba(0, 0, 0, 0.1) 100%);
+}
+.shadow-radial, .top::after {
+  background: radial-gradient(50px at 55% 75%, transparent 15%, transparent 50%, rgba(0, 0, 0, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
+}
+.shadow-radial-inverted, .bottom::after {
+  background: radial-gradient(50px at 55% 25%, transparent 15%, transparent 50%, rgba(0, 0, 0, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.pole {
+  margin: auto;
+}
+.top {
+  position: relative;
+  border: 4px solid #222;
+  border-top: 0;
+  width: 90px;
+  top: 5px;
+  height: 10px;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 5;
+}
+.top::before {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  top: -15px;
+  left: -8px;
+  background-color: white;
+  border-radius: 5px;
+  content: '';
+}
+.top::after {
+  top: -49px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom: 0;
+  background-color: white;
+}
+.cilinder {
+  margin: auto;
+  height: 231px;
+  width: 70px;
+  background: linear-gradient(to right, #fff 0%, #fff 5%, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 35%, rgba(211, 211, 211, 0.1) 45%, rgba(211, 211, 211, 0.1) 60%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.6) 80%, rgba(211, 211, 211, 0.1) 80%, rgba(211, 211, 211, 0.1) 95%, #fff 95%, #fff 100%), repeating-linear-gradient(-30deg, #1752d3, #1752d3 25px, white 25px, white 50px, red 50px, red 75px, white 75px, white 100px);
+  padding: 0 5px;
+  animation: barber 2.5s linear infinite;
+  border-radius: 2px;
+  position: relative;
+}
+.bottom {
+  position: relative;
+  border-bottom: 0;
+  width: 90px;
+  bottom: 5px;
+  height: 10px;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 5;
+}
+.bottom::before {
+  position: absolute;
+  width: 100px;
+  height: 15px;
+  bottom: -20px;
+  left: -8px;
+  background-color: white;
+  border-radius: 5px;
+  content: '';
+}
+.bottom::after {
+  bottom: -54px;
+  border-top: 0;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background-color: white;
+}
+@keyframes barber {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: 231px;
+  }
+}
+
+
