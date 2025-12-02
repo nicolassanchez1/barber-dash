@@ -24,7 +24,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 export default function TotalOrderLineChartCard({ isLoading }) {
   const theme = useTheme();
-
+  const isDarkMode = theme.palette.mode === 'dark';
   const [timeValue, setTimeValue] = React.useState(false);
   const handleChangeTime = (event, newValue) => {
     setTimeValue(newValue);
@@ -138,7 +138,7 @@ export default function TotalOrderLineChartCard({ isLoading }) {
                           sx={{
                             fontSize: '1rem',
                             fontWeight: 500,
-                            color: 'primary.200'
+                            color: isDarkMode ? 'gray.400': 'primary.200'
                           }}
                         >
                           Total Order

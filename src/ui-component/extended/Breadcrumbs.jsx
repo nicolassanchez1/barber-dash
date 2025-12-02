@@ -49,6 +49,7 @@ export default function Breadcrumbs({
   ...others
 }) {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const location = useLocation();
   const [main, setMain] = useState();
   const [item, setItem] = useState();
@@ -171,7 +172,7 @@ export default function Breadcrumbs({
             {title && titleBottom && <BTitle title={main.title} />}
           </Grid>
         </Box>
-        {card === false && divider !== false && <Divider sx={{ mt: 2 }} />}
+        {card === false && divider !== false && <Divider sx={{ mt: 2, borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} />}
       </Card>
     );
   }
@@ -263,7 +264,7 @@ export default function Breadcrumbs({
               {title && titleBottom && <BTitle title={custom ? heading : item?.title} />}
             </Grid>
           </Box>
-          {card === false && divider !== false && <Divider sx={{ mt: 2 }} />}
+          {card === false && divider !== false && <Divider sx={{ mt: 2, borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} />}
         </Card>
       );
     }

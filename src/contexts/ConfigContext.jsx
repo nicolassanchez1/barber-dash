@@ -20,7 +20,8 @@ const ConfigContext = createContext(initialState);
 function ConfigProvider({ children }) {
   const [config, setConfig] = useLocalStorage('berry-config-vite-ts', {
     fontFamily: initialState.fontFamily,
-    borderRadius: initialState.borderRadius
+    borderRadius: initialState.borderRadius,
+    mode: 'dark' // Force dark mode as default
   });
 
   const onChangeFontFamily = (fontFamily) => {
@@ -37,6 +38,13 @@ function ConfigProvider({ children }) {
     });
   };
 
+  const onChangeMode = () => {
+    setConfig({
+      ...config,
+      mode: config.mode === 'light' ? 'dark' : 'light'
+    });
+  };
+
   const onReset = () => {
     setConfig({ ...defaultConfig });
   };
@@ -47,6 +55,7 @@ function ConfigProvider({ children }) {
         ...config,
         onChangeFontFamily,
         onChangeBorderRadius,
+        onChangeMode,
         onReset
       }}
     >

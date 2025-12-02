@@ -50,6 +50,7 @@ const status = [
 
 export default function NotificationSection() {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const downMD = useMediaQuery(theme.breakpoints.down('md'));
 
   const [open, setOpen] = useState(false);
@@ -175,7 +176,7 @@ export default function NotificationSection() {
                               </Box>
                             </Grid>
                             <Grid size={12} sx={{ p: 0 }}>
-                              <Divider sx={{ my: 0 }} />
+                              <Divider sx={{ my: 0, borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} />
                             </Grid>
                           </Grid>
                           <NotificationList />

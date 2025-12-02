@@ -10,11 +10,14 @@ import NavGroup from './NavGroup';
 import menuItems from 'menu-items';
 
 import { useGetMenuMaster } from 'api/menu';
+import { useTheme } from '@mui/material/styles';
 
 // ==============================|| SIDEBAR MENU LIST ||============================== //
 
 function MenuList() {
   const { menuMaster } = useGetMenuMaster();
+  const theme = useTheme()
+  const isDarkMode = theme.palette.mode === 'dark';
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
 
   const [selectedID, setSelectedID] = useState('');
@@ -45,7 +48,7 @@ function MenuList() {
           return (
             <List key={item.id}>
               <NavItem item={item} level={1} isParents setSelectedID={() => setSelectedID('')} />
-              {index !== 0 && <Divider sx={{ py: 0.5 }} />}
+              {index !== 0 && <Divider sx={{ py: 0.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />}
             </List>
           );
         }

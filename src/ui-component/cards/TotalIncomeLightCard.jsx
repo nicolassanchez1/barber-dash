@@ -42,7 +42,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 export default function TotalIncomeLightCard({ isLoading, total, icon, label }) {
   const theme = useTheme();
-
+  const isDarkMode = theme.palette.mode === 'dark';
   return (
     <>
       {isLoading ? (
@@ -58,7 +58,7 @@ export default function TotalIncomeLightCard({ isLoading, total, icon, label }) 
                     sx={{
                       ...theme.typography.commonAvatar,
                       ...theme.typography.largeAvatar,
-                      bgcolor: label === 'Meeting attends' ? alpha(theme.palette.error.light, 0.25) : 'warning.light',
+                      bgcolor: isDarkMode ? 'secondary.200' : 'warning.light',
                       color: label === 'Meeting attends' ? 'error.dark' : 'warning.dark'
                     }}
                   >
@@ -69,7 +69,7 @@ export default function TotalIncomeLightCard({ isLoading, total, icon, label }) 
                   sx={{ py: 0, mt: 0.45, mb: 0.45 }}
                   primary={<Typography variant="h4">${total}k</Typography>}
                   secondary={
-                    <Typography variant="subtitle2" sx={{ color: 'grey.500', mt: 0.5 }}>
+                    <Typography variant="subtitle2" sx={{ color: isDarkMode ? 'grey.400'  : 'grey.500', mt: 0.5 }}>
                       {label}
                     </Typography>
                   }

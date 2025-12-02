@@ -14,6 +14,8 @@ export default function Palette(mode, presetColor) {
       colors = defaultColor;
   }
 
+  const isDarkMode = mode === 'dark';
+
   return createTheme({
     palette: {
       mode,
@@ -21,18 +23,18 @@ export default function Palette(mode, presetColor) {
         black: colors.darkPaper
       },
       primary: {
-        light: colors.primaryLight,
-        main: colors.primaryMain,
-        dark: colors.primaryDark,
-        200: colors.primary200,
-        800: colors.primary800
+        light: isDarkMode ? colors.darkPrimaryLight : colors.primaryLight,
+        main: isDarkMode ? colors.darkPrimaryMain : colors.primaryMain,
+        dark: isDarkMode ? colors.darkPrimaryDark : colors.primaryDark,
+        200: isDarkMode ? colors.darkPrimary200 : colors.primary200,
+        800: isDarkMode ? colors.darkPrimary800 : colors.primary800
       },
       secondary: {
-        light: colors.secondaryLight,
-        main: colors.secondaryMain,
-        dark: colors.secondaryDark,
-        200: colors.secondary200,
-        800: colors.secondary800
+        light: isDarkMode ? colors.darkSecondaryLight : colors.secondaryLight,
+        main: isDarkMode ? colors.darkSecondaryMain : colors.secondaryMain,
+        dark: isDarkMode ? colors.darkSecondaryDark : colors.secondaryDark,
+        200: isDarkMode ? colors.darkSecondary200 : colors.secondary200,
+        800: isDarkMode ? colors.darkSecondary800 : colors.secondary800
       },
       error: {
         light: colors.errorLight,
@@ -48,7 +50,7 @@ export default function Palette(mode, presetColor) {
         light: colors.warningLight,
         main: colors.warningMain,
         dark: colors.warningDark,
-        contrastText: colors.grey700
+        contrastText: isDarkMode ? colors.darkTextPrimary : colors.grey700
       },
       success: {
         light: colors.successLight,
@@ -58,7 +60,7 @@ export default function Palette(mode, presetColor) {
       },
       grey: {
         50: colors.grey50,
-        100: colors.grey100,
+        100: isDarkMode ? colors.darkBackgroundDash :colors.grey100,
         500: colors.grey500,
         600: colors.grey600,
         700: colors.grey700,
@@ -72,15 +74,15 @@ export default function Palette(mode, presetColor) {
         900: colors.darkPaper
       },
       text: {
-        primary: colors.grey700,
-        secondary: colors.grey500,
-        dark: colors.grey900,
+        primary: isDarkMode ? colors.darkTextPrimary : colors.grey700,
+        secondary: isDarkMode ? colors.darkTextSecondary : colors.grey500,
+        dark: isDarkMode ? colors.darkTextTitle : colors.grey900,
         hint: colors.grey100
       },
-      divider: colors.grey200,
+      divider: isDarkMode ? colors.darkTextPrimary : colors.grey200,
       background: {
-        paper: colors.paper,
-        default: colors.paper
+        paper: isDarkMode ? colors.darkPaper : colors.paper,
+        default: isDarkMode ? colors.darkBackground : colors.paper
       }
     }
   });

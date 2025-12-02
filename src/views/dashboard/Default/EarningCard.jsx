@@ -26,6 +26,7 @@ import ArchiveTwoToneIcon from '@mui/icons-material/ArchiveOutlined';
 
 export default function EarningCard({ isLoading }) {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -162,7 +163,7 @@ export default function EarningCard({ isLoading }) {
                   sx={{
                     fontSize: '1rem',
                     fontWeight: 500,
-                    color: 'secondary.200'
+                    color: isDarkMode ? 'gray.400': 'secondary.200'
                   }}
                 >
                   Total Earning

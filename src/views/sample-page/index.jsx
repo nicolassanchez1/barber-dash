@@ -34,6 +34,7 @@ import { IconBottle, IconChartBar, IconCoin, IconAlertTriangle, IconShoppingCart
 
 export default function SamplePage() {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const { data: products = [], isLoading } = useProducts();
   const { data: categories = [] } = useCategories();
   const [isPageLoading, setPageLoading] = useState(true);
@@ -136,7 +137,7 @@ export default function SamplePage() {
                         }
                       />
                     </ListItem>
-                    {index !== expiringProducts.length - 1 && <Divider />}
+                    {index !== expiringProducts.length - 1 && <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />}
                   </Box>
                 ))}
               </List>

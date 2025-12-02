@@ -24,8 +24,11 @@ import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import { useTheme } from '@mui/material/styles';
 
 export default function PopularCard({ isLoading }) {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -120,7 +123,7 @@ export default function PopularCard({ isLoading }) {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: 1.5 }} />
+                <Divider sx={{ my: 1.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />
                 <Grid container direction="column">
                   <Grid>
                     <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
@@ -161,7 +164,7 @@ export default function PopularCard({ isLoading }) {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: 1.5 }} />
+                <Divider sx={{ my: 1.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />
                 <Grid container direction="column">
                   <Grid>
                     <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
@@ -202,7 +205,7 @@ export default function PopularCard({ isLoading }) {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: 1.5 }} />
+                <Divider sx={{ my: 1.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />
                 <Grid container direction="column">
                   <Grid>
                     <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
@@ -243,7 +246,7 @@ export default function PopularCard({ isLoading }) {
                     </Typography>
                   </Grid>
                 </Grid>
-                <Divider sx={{ my: 1.5 }} />
+                <Divider sx={{ my: 1.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />
                 <Grid container direction="column">
                   <Grid>
                     <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>

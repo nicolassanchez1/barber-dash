@@ -15,6 +15,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 // project imports
 import FontFamily from './FontFamily';
 import BorderRadius from './BorderRadius';
+import ThemeMode from './ThemeMode';
 
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
@@ -24,7 +25,7 @@ import { IconSettings } from '@tabler/icons-react';
 
 export default function Customization() {
   const theme = useTheme();
-
+  const isDarkMode = theme.palette.mode === 'dark';
   // drawer on/off
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
@@ -65,14 +66,19 @@ export default function Customization() {
         <PerfectScrollbar>
           <Grid container spacing={2}>
             <Grid size={12}>
+              {/* theme mode */}
+              <ThemeMode />
+              <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
+            </Grid>
+            <Grid size={12}>
               {/* font family */}
               <FontFamily />
-              <Divider />
+              <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
             </Grid>
             <Grid size={12}>
               {/* border radius */}
               <BorderRadius />
-              <Divider />
+              <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
             </Grid>
           </Grid>
         </PerfectScrollbar>

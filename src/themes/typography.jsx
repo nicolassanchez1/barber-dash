@@ -1,34 +1,35 @@
 export default function Typography(theme, borderRadius, fontFamily) {
+  const isDarkMode = theme.palette.mode === 'dark';
   return {
     fontFamily,
     h6: {
       fontWeight: 500,
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontSize: '0.75rem'
     },
     h5: {
       fontSize: '0.875rem',
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontWeight: 500
     },
     h4: {
       fontSize: '1rem',
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontWeight: 600
     },
     h3: {
       fontSize: '1.25rem',
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontWeight: 600
     },
     h2: {
       fontSize: '1.5rem',
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontWeight: 700
     },
     h1: {
       fontSize: '2.125rem',
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       fontWeight: 700
     },
     subtitle1: {
@@ -66,7 +67,7 @@ export default function Typography(theme, borderRadius, fontFamily) {
       '& > label': {
         top: 23,
         left: 0,
-        color: theme.palette.grey[500],
+        color: isDarkMode ? theme.palette.text.secondary : theme.palette.grey[500],
         '&[data-shrink="false"]': {
           top: 5
         }
@@ -82,7 +83,7 @@ export default function Typography(theme, borderRadius, fontFamily) {
       }
     },
     mainContent: {
-      backgroundColor: theme.palette.grey[100],
+      backgroundColor: isDarkMode ? theme.palette.background.default : theme.palette.grey[100],
       width: '100%',
       minHeight: 'calc(100vh - 88px)',
       flexGrow: 1,
@@ -94,7 +95,7 @@ export default function Typography(theme, borderRadius, fontFamily) {
     menuCaption: {
       fontSize: '0.875rem',
       fontWeight: 500,
-      color: theme.palette.grey[900],
+      color: isDarkMode ? theme.palette.text.dark : theme.palette.grey[900],
       padding: '6px',
       textTransform: 'capitalize',
       marginTop: '10px'

@@ -13,12 +13,14 @@ import AuthLogin from '../auth-forms/AuthLogin';
 
 import Logo from 'ui-component/Logo';
 import AuthFooter from 'ui-component/cards/AuthFooter';
+import { useTheme } from '@mui/material/styles';
 
 // ================================|| AUTH3 - LOGIN ||================================ //
 
 export default function Login() {
+  const theme = useTheme();
   const downMD = useMediaQuery((theme) => theme.breakpoints.down('md'));
-
+  const isDarkMode = theme.palette.mode === 'dark';
   return (
     <AuthWrapper1>
       <Grid container direction="column" sx={{ justifyContent: 'flex-end', minHeight: '100vh' }}>
@@ -31,13 +33,15 @@ export default function Login() {
                     <Logo />
                   </Grid>
                   <Grid size={12}>
-                    <Grid container direction={{ xs: 'column-reverse', md: 'row' }} sx={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <Grid container direction={{ xs: 'column-reverse', md: 'row' }}
+                          sx={{ alignItems: 'center', justifyContent: 'center' }}>
                       <Grid>
                         <Stack spacing={1} sx={{ alignItems: 'center', justifyContent: 'center' }}>
                           <Typography gutterBottom variant={downMD ? 'h3' : 'h2'} sx={{ color: 'secondary.main' }}>
                             Hi, Welcome Back
                           </Typography>
-                          <Typography variant="caption" sx={{ fontSize: '16px', textAlign: { xs: 'center', md: 'inherit' } }}>
+                          <Typography variant="caption"
+                                      sx={{ fontSize: '16px', textAlign: { xs: 'center', md: 'inherit' } }}>
                             Enter your credentials to continue
                           </Typography>
                         </Stack>
@@ -48,19 +52,13 @@ export default function Login() {
                     <AuthLogin />
                   </Grid>
                   <Grid size={12}>
-                    <Divider />
+                    <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }} />
                   </Grid>
                 </Grid>
               </AuthCardWrapper>
-              <div className="barber_pole"></div>
-              <div className="container">
-                <div className="pole">
-                  <div className="top"></div>
-                  <div className="cilinder"></div>
-                  <div className="bottom"></div>
-                </div>
-              </div>
+
               <div className="barberContainer">
+
                 <div className="ball"></div>
 
                 <div className="endCap"></div>
@@ -68,7 +66,9 @@ export default function Login() {
                 <div className="cap"></div>
 
                 <div className="barberWrap">
+
                   <div className="barber"></div>
+
                 </div>
 
                 <div className="cap"></div>
@@ -76,6 +76,7 @@ export default function Login() {
                 <div className="endCap"></div>
 
                 <div className="ball"></div>
+
               </div>
             </Grid>
           </Grid>

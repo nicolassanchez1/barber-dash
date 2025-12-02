@@ -19,6 +19,7 @@ import { useGetMenuMaster } from 'api/menu';
 
 export default function NavGroup({ item, lastItem, remItems, lastItemId, setSelectedID }) {
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const { pathname } = useLocation();
 
   const { menuMaster } = useGetMenuMaster();
@@ -114,7 +115,7 @@ export default function NavGroup({ item, lastItem, remItems, lastItemId, setSele
       </List>
 
       {/* group divider */}
-      {drawerOpen && <Divider sx={{ mt: 0.25, mb: 1.25 }} />}
+      {drawerOpen && <Divider sx={{ mt: 0.25, mb: 1.25, borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} />}
     </>
   );
 }

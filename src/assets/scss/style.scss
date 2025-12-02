@@ -155,105 +155,65 @@
   outline: none !important;
 }
 
-
-.pole-top, .top::after, .bottom::after {
-  width: 80px;
-  height: 30px;
-  position: absolute;
-  content: '';
-}
-.default-border, .pole-top, .top::after, .bottom::after, .top::before, .cilinder, .bottom, .bottom::before {
-  border: 4px solid #333;
-}
-.shadow, .top, .top::before, .bottom, .bottom::before {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 15%, transparent 20%, transparent 85%, rgba(0, 0, 0, 0.1) 95%, rgba(0, 0, 0, 0.1) 100%);
-}
-.shadow-radial, .top::after {
-  background: radial-gradient(50px at 55% 75%, transparent 15%, transparent 50%, rgba(0, 0, 0, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
-}
-.shadow-radial-inverted, .bottom::after {
-  background: radial-gradient(50px at 55% 25%, transparent 15%, transparent 50%, rgba(0, 0, 0, 0.1) 65%, rgba(0, 0, 0, 0.1) 100%);
-}
-.container {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-}
-.pole {
-  margin: auto;
-}
-.top {
-  position: relative;
-  border: 4px solid #222;
-  border-top: 0;
-  width: 90px;
-  top: 5px;
-  height: 10px;
-  background-color: white;
-  border-radius: 10px;
-  z-index: 5;
-}
-.top::before {
-  position: absolute;
-  width: 100px;
-  height: 10px;
-  top: -15px;
-  left: -8px;
-  background-color: white;
-  border-radius: 5px;
-  content: '';
-}
-.top::after {
-  top: -49px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  border-bottom: 0;
-  background-color: white;
-}
-.cilinder {
-  margin: auto;
-  height: 231px;
-  width: 70px;
-  background: linear-gradient(to right, #fff 0%, #fff 5%, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.2) 25%, rgba(0, 0, 0, 0.1) 25%, rgba(0, 0, 0, 0.1) 35%, rgba(211, 211, 211, 0.1) 45%, rgba(211, 211, 211, 0.1) 60%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.6) 80%, rgba(211, 211, 211, 0.1) 80%, rgba(211, 211, 211, 0.1) 95%, #fff 95%, #fff 100%), repeating-linear-gradient(-30deg, #1752d3, #1752d3 25px, white 25px, white 50px, red 50px, red 75px, white 75px, white 100px);
-  padding: 0 5px;
-  animation: barber 2.5s linear infinite;
-  border-radius: 2px;
-  position: relative;
-}
-.bottom {
-  position: relative;
-  border-bottom: 0;
-  width: 90px;
-  bottom: 5px;
-  height: 10px;
-  background-color: white;
-  border-radius: 10px;
-  z-index: 5;
-}
-.bottom::before {
-  position: absolute;
-  width: 100px;
-  height: 15px;
-  bottom: -20px;
-  left: -8px;
-  background-color: white;
-  border-radius: 5px;
-  content: '';
-}
-.bottom::after {
-  bottom: -54px;
-  border-top: 0;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  background-color: white;
-}
-@keyframes barber {
-  from {
-    background-position-y: 0px;
-  }
-  to {
-    background-position-y: 231px;
-  }
+.barberContainer{
+  width:84px;
+  height:306px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
+.ball{
+  height:22px;
+  width:22px;
+  margin-left:31px;
+  margin-right:31px;
+  border-radius:100px;
+  background-color:#fefbe3;
+}
+
+.endCap{
+  width:54px;
+  height:15px;
+  margin-left:15px;
+  margin-right:15px;
+  margin-top:5px;
+  margin-bottom:5px;
+  background-color:#fefbe3;
+}
+
+.cap{
+  width:84px;
+  height:15px;
+  background-color:#fefbe3;
+}
+
+.barberWrap{
+  height:172px;
+  width:54px;
+  margin-top:5px;
+  margin-bottom:5px;
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.barber{
+  height:172px;
+  width:54px;
+  position: inherit;
+  background:#fefbe3;
+  background-color: -webkit-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+  background: -moz-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+  background: -o-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+  background: linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+  background-size: 27px 27px;
+  -webkit-animation: barberpole 1.5s infinite linear;
+  animation: barberpole 1.5s infinite linear;
+}
+
+@-webkit-keyframes barberpole {
+  from {background-position: 0%;}
+  to {background-position: 100%;}
+}
 

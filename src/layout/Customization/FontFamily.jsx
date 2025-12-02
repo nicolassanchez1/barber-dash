@@ -9,12 +9,14 @@ import Typography from '@mui/material/Typography';
 // project imports
 import useConfig from 'hooks/useConfig';
 import MainCard from 'ui-component/cards/MainCard';
+import { useTheme } from '@mui/material/styles';
 
 // ==============================|| CUSTOMIZATION - FONT FAMILY ||============================== //
 
 export default function FontFamilyPage() {
   const { fontFamily, onChangeFontFamily } = useConfig();
-
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const handleFontChange = (event) => {
     onChangeFontFamily(event.target.value);
   };
@@ -37,7 +39,7 @@ export default function FontFamilyPage() {
     }
   ];
 
-  const bgColor = 'grey.50';
+  const bgColor = isDarkMode ? 'grey.900' : 'grey.50';
   const bgActiveColor = 'primary.light';
 
   return (

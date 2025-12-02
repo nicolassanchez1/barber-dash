@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
+import { useTheme } from '@mui/material/styles';
 
 export default function FormControlSelect({
   captionLabel,
@@ -18,6 +19,8 @@ export default function FormControlSelect({
   textPrimary,
   textSecondary
 }) {
+  const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const IconPrimary = iconPrimary;
   const primaryIcon = iconPrimary ? <IconPrimary fontSize="small" sx={{ color: 'grey.700' }} /> : null;
 
@@ -49,7 +52,7 @@ export default function FormControlSelect({
                 {textPrimary && (
                   <>
                     <InputAdornment position="start">{textPrimary}</InputAdornment>
-                    <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                    <Divider sx={{ height: 28, m: 0.5,borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} orientation="vertical" />
                   </>
                 )}
               </>
@@ -59,7 +62,7 @@ export default function FormControlSelect({
                 {secondaryIcon && <InputAdornment position="end">{secondaryIcon}</InputAdornment>}
                 {textSecondary && (
                   <>
-                    <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                    <Divider sx={{ height: 28, m: 0.5, borderColor: isDarkMode ? 'grey.800' : 'grey.300'  }} orientation="vertical" />
                     <InputAdornment position="end">{textSecondary}</InputAdornment>
                   </>
                 )}

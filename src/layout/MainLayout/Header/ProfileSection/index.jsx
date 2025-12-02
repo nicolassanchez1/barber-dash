@@ -39,6 +39,7 @@ import { logout } from '../../../../redux/session/actions';
 export default function ProfileSection() {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const isDarkMode = theme.palette.mode === 'dark';
   const { borderRadius } = useConfig();
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');
@@ -153,7 +154,7 @@ export default function ProfileSection() {
                         aria-describedby="search-helper-text"
                         slotProps={{ input: { 'aria-label': 'weight' } }}
                       />
-                      <Divider />
+                      <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
                     </Box>
                     <Box
                       sx={{
@@ -166,7 +167,7 @@ export default function ProfileSection() {
                       }}
                     >
                       <UpgradePlanCard />
-                      <Divider />
+                      <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
                       <Card sx={{ bgcolor: 'primary.light', my: 2 }}>
                         <CardContent>
                           <Grid container spacing={3} direction="column">
@@ -204,7 +205,7 @@ export default function ProfileSection() {
                           </Grid>
                         </CardContent>
                       </Card>
-                      <Divider />
+                      <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />
                       <List
                         component="nav"
                         sx={{

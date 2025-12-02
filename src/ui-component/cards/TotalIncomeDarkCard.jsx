@@ -46,7 +46,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 export default function TotalIncomeDarkCard({ isLoading }) {
   const theme = useTheme();
-
+  const isDarkMode = theme.palette.mode === 'dark';
   return (
     <>
       {isLoading ? (
@@ -81,8 +81,8 @@ export default function TotalIncomeDarkCard({ isLoading }) {
                     </Typography>
                   }
                   secondary={
-                    <Typography variant="subtitle2" sx={{ color: 'primary.light', mt: 0.25 }}>
-                      Total Income
+                    <Typography variant="subtitle2" sx={{ color: isDarkMode ? theme.palette.text.primary : theme.palette.primary.light, mt: 0.25 }}>
+                      Total Income2
                     </Typography>
                   }
                 />

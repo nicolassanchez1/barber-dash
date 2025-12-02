@@ -17,7 +17,7 @@ import chartData from './chart-data/bajaj-area-chart';
 export default function BajajAreaChartCard() {
   const theme = useTheme();
   const orangeDark = theme.palette.secondary[800];
-
+  const isDarkMode = theme.palette.mode === 'dark';
   const [chartConfig, setChartConfig] = useState(chartData);
 
   useEffect(() => {
@@ -37,19 +37,19 @@ export default function BajajAreaChartCard() {
         <Grid size={12}>
           <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
             <Grid>
-              <Typography variant="subtitle1" sx={{ color: 'secondary.dark' }}>
+              <Typography variant="subtitle1" sx={{ color: isDarkMode ? theme.palette.secondary.dark : 'secondary.dark' }}>
                 Bajaj Finery
               </Typography>
             </Grid>
             <Grid>
-              <Typography variant="h4" sx={{ color: 'grey.800' }}>
-                $1839.00
+              <Typography variant="h4" sx={{ color: isDarkMode ? theme.palette.text.dark : 'grey.800' }}>
+                $1839.000
               </Typography>
             </Grid>
           </Grid>
         </Grid>
         <Grid size={12}>
-          <Typography variant="subtitle2" sx={{ color: 'grey.800' }}>
+          <Typography variant="subtitle2" sx={{ color: isDarkMode ? theme.palette.text.dark : 'grey.800' }}>
             10% Profit
           </Typography>
         </Grid>

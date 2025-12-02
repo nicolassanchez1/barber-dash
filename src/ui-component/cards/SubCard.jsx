@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 // ==============================|| CUSTOM SUB CARD ||============================== //
 
@@ -23,6 +24,8 @@ const SubCard = ({
   ref,
   ...others
 }) => {
+  const theme = useTheme()
+  const isDarkMode = theme.palette.mode === 'dark';
   const defaultShadow = '0 2px 14px 0 rgb(32 40 45 / 8%)';
 
   return (
@@ -32,7 +35,7 @@ const SubCard = ({
       {darkTitle && title && <CardHeader sx={{ p: 2.5 }} title={<Typography variant="h4">{title}</Typography>} action={secondary} />}
 
       {/* content & header divider */}
-      {title && <Divider />}
+      {title && <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />}
 
       {/* card content */}
       {content && (
@@ -43,7 +46,7 @@ const SubCard = ({
       {!content && children}
 
       {/* actions & footer divider */}
-      {actions && <Divider />}
+      {actions && <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />}
 
       {actions && <CardActions sx={{ p: 2.5, ...footerSX }}>{actions}</CardActions>}
     </Card>

@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 // constant
 const headerStyle = {
@@ -26,6 +27,8 @@ const MainCard = function MainCard({
   ref,
   ...others
 }) {
+  const theme = useTheme()
+  const isDarkMode = theme.palette.mode === 'dark';
   const defaultShadow = '0 2px 14px 0 rgb(32 40 45 / 8%)';
 
   return (
@@ -48,7 +51,7 @@ const MainCard = function MainCard({
       )}
 
       {/* content & header divider */}
-      {title && <Divider />}
+      {title && <Divider sx={{ borderColor: isDarkMode ? 'grey.800' : 'grey.300' }}  />}
 
       {/* card content */}
       {content && (
